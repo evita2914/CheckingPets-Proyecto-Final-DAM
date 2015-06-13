@@ -1,0 +1,60 @@
+<div id="modalEditTarea" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+     <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Modificar tarea</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/tarea/modificar" method="post">
+                    {% csrf_token %}
+                    <div class="panel panel-body">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="nombre" class="control-label">¿Qué tienes que hacer?</label>
+                                <input type="text" class="form-control" id="tarea-input-name" name="nom"  placeholder="Nombre de la tarea" value="{{ tarea.nombre }}">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="mascota" class="control-label">¿Con quién?:</label>
+                                        <select class="selecMasc" name="masc" id="tarea-select-mascota">
+                                            <option value="">-Elegir animal-</option>
+                                           {% for animal in animales %}
+                                               <option value="{{ animal.id }}">{{ animal.nombre }}</option>
+                                           {% endfor %}
+                                        </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 form-group2">
+                                <label for="fechatarea" class="control-label">¿Qué día?</label>
+                                <input type="text" class="form-control" id="tarea-input-date" placeholder="AAAA-MM-DD"
+                                       name="dia" value="{{ tarea.fecha }}">
+                            </div>
+                            <div class="col-md-6 form-group" id="hora">
+                                <label for="hora" class="control-label">¿A que hora?</label>
+                                <input type="text" class="form-control" id="tarea-input-hour" placeholder="HH:MM"
+                                       name="hora" value="{{ tarea.hora }}">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">¿Algo más que añadir?</label>
+                            <textarea class="form-control" id="tarea-input-desc" name="descrN"></textarea>
+                        </div>
+
+                    </div>
+                    <input type="hidden" name="idTarea" id="tarea-input-hidden-id" value="{{ tarea.id }}">
+                    <div class="form-group text-center">
+                        <div class="row">
+                            <button type="submit" id="modTar" class="btn" style="color: #ffffff; background-color: #26C07C">Modificar Tarea</button>
+                        </div>
+                    </div>
+                    <a id="redir" class="center-block">Eliminar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,115 @@
+.src-image {
+  display: none;
+}
+
+.logo-header{
+    max-width: 10%;
+    margin-bottom: 5px
+}
+
+.card {
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  text-align: center;
+  padding: 0;
+  background-color: #9b59b6;
+  color: rgb(8, 9, 8);
+  height: 700px;
+}
+
+.card .header-bg {
+  /* This stretches the canvas across the entire hero unit */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 160px;
+  border-bottom: 1px #FFF solid;
+  /* This positions the canvas under the text */
+  z-index: 1;
+}
+.card .avatar {
+  position: relative;
+  margin-top: 15px;
+  z-index: 100;
+}
+
+.card .avatar img {
+  width: 150px;
+  height: 150px;
+  -webkit-border-radius: 40%;
+  -moz-border-radius: 40%;
+  border-radius: 50%;
+  border: 5px solid rgba(0,0,30,0.8);
+}
+
+.form-control-pet {
+  display: block;
+  align-items: center;
+  margin-left: 330px;
+  margin-bottom: 40px;
+  width: 30%;
+  height: 30px;
+  padding: 6px 12px;
+  font-size: 20px;
+  line-height: 600px;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+       -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.form-control-pet:focus {
+  border-color: #bc60db;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(223, 115, 235, 0.60);
+          box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(201, 69, 255, 0.60);
+}
+.form-control-pet::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.form-control-pet:-ms-input-placeholder {
+  color: #999;
+}
+.form-control-pet::-webkit-input-placeholder {
+  color: #999;
+}
+.form-control-pet[disabled],
+.form-control-pet[readonly],
+fieldset[disabled] .form-control-pet {
+  background-color: #eee;
+  opacity: 1;
+}
+.form-control-pet[disabled],
+fieldset[disabled] .form-control-pet {
+  cursor: not-allowed;
+}
+textarea.form-control-pet {
+  height: auto;
+}
+
+.label-pet{
+    font-size: 18px;
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.text-info{
+    text-align: center;
+    font-size: 13px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #080808;
+}
+
+.icon_check{
+    font-size: 15px;
+}
+

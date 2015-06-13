@@ -1,0 +1,41 @@
+
+<div id="modalEditVacuna" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalUpdateTittle">Modificar vacuna</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/vacuna/modificar/{{ vacuna.id }}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Nombre:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="nom" placeholder="Nombre de la vacuna" value="{{ vacuna.nombre }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Fecha de vacunación:</label>
+                        <input type="text" class="form-control" id="date-pick1" placeholder="AAAA-MM-DD" value="{{ vacuna.fecha|date:"Y-m-d" }}" name="fec1">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Fecha dosis de recuerdo:</label>
+                        <input type="text" class="form-control" id="date-pick2" placeholder="AAAA-MM-DD" value="{{ vacuna.fecha|date:"Y-m-d" }}" name="fec2">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Fecha dosis de recuerdo:</label>
+                        <input type="text" class="form-control" id="date-pick3" placeholder="AAAA-MM-DD" value="{{ vacuna.fecha|date:"Y-m-d" }}" name="fec3">
+                    </div>
+
+                        <div class="form-group">
+                            <div class="row text-center">
+                                <button class="btn btn-create" style="color: #ffffff">Guardar Cambios</button>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

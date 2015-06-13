@@ -1,0 +1,78 @@
+<div class="modal fade bs-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Añadir nueva mascota</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/animal/insertar" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="panel panel-body">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                <label for="nombre" class="control-label">Nombre:</label>
+                                <input type="text" class="form-control" id="recipient-name" name="nombre">
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label for="nacimiento" class="control-label">Fecha de nacimiento:</label>
+                                <input type="text" class="form-control" id="date-pick" placeholder="AAAA-MM-DD"
+                                       name="nacimiento">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message-text" class="control-label">Descripción:</label>
+                            <textarea class="form-control" id="message-text" name="descripcion"></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group text-center">
+                                <h2><span class="glyphicon glyphicon-tint"></span></h2>
+
+                                <p>Color predeterminado:</p>
+
+                                <div class="btn-group" data-toggle="buttons">
+                                    {% for codigo, color in colores.items %}
+                                        <label class="btn btn-color-{{ color }}">
+                                            <input type="radio" name="color" value="{{ color }}">
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        </label>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group text-center" id="tipos">
+                                <h2><span class="glyphicon glyphicon-home"></span></h2>
+
+                                <p>Tipo de mascota:</p>
+                                {% for tipo in tiposanimal %}
+                                    <span style="margin-left: 10px;"><input type="radio" id="{{ tipo.nombre }}"
+                                                                            name="tipo"
+                                                                            value="{{ tipo.id }}">
+                                <label for="{{ tipo.nombre }}"
+                                       class="control-label text-primary">{{ tipo.nombre }}</label></span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 form-group text-center">
+                                <h2><span class="glyphicon glyphicon-picture"></span></h2>
+
+                                <p>Foto:</p>
+                                {{ fotoform }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <div class="row">
+                            <button type="submit" class="btn" id="creaAnimal" style="color: #ffffff; background-color: #26C07C">Añadir Mascota</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

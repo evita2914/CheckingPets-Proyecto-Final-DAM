@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extrastyle %}
+    <link href="{% static 'css/logout.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block contenido %}
+    <div class="container" style="margin-top: 150px">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 text-center">
+                <a href="/">
+                    <img alt="CheckingPets" class="logo-central-signout" src="{% static 'img/LogoSinNombre.png' %}">
+                </a>
+                <h1>Checking Pets</h1>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <br>
+
+        <div class="col-md-12 text-center">
+            <p style="font-size: 130%">Has cerrado sesión</p>
+            <p style="font-size: large">¡Vuelve pronto! :)</p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+<script src="{% static 'js/redireccion.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extrastyle %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block contenido %}
+    <div class="container">
+        <div id="loginbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" >
+            <div class="panel panel-info-pet">
+                <div class="panel-heading-pet">
+                    <div class="panel-title-pet">Iniciar Sesión</div>
+                </div>
+                <div class="text-center">
+                    <img class="logo-central-signin" src="{% static 'img/logo.jpg' %}">
+                </div>
+
+                <div style="padding-top:30px" class="panel-body">
+
+
+                    {% if error %}
+                        <div id="login-alert"
+                             class="alert alert-danger col-sm-12"><p>{{ error_msg }}</p></div>
+                    {% endif %}
+
+                    <form id="loginform" class="form-horizontal" role="form"  method="post">
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" name="username"
+                                   placeholder="username or email">
+                        </div>
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="login-password" type="password" class="form-control" name="password"
+                                   placeholder="password">
+                        </div>
+
+                        <div style="margin-top:10px" class="form-group">
+                            <!-- Button -->
+
+                            <div class="col-sm-12 controls text-center">
+                                <button type="submit" id="btn-login" class="btn btn-login-pet"> Login</button>
+                            </div>
+                        </div>
+
+                        {% csrf_token %}
+                    </form>
+                    <div class="form-group">
+                            <div class="col-md-12 control">
+                                <div style="border-top: 1px solid#888; padding-top:15px; font-size:100%">
+                                    ¿No tienes una cuenta?
+                                    <a class="a-pet" href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                        ¡Regístrate!
+                                    </a>
+                                    <div style="float:right; font-size: 80%; position: relative;font-size:100%">
+                                        <a class="a-pet" href="password_reset/">¿Olvidaste la contraseña?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading-pet">
+                    <div class="panel-title-pet">Registro de cuenta</div>
+                    <div style="float:right; font-size: 100%; position: relative; top:-20px; ">
+                        <a class="a-pet2" id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Inicio</a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form id="signupform" class="form-horizontal" role="form" action="/usuario_nuevo/"
+                            method="post">
+                        {% csrf_token %}
+                        <div id="signupalert" style="display:none" class="alert alert-danger">
+                            <p>Error:</p>
+                            <span></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="email" class="col-md-3 control-label">Email</label>
+
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Dirección de correo">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="firstname" class="col-md-3 control-label">Nombre</label>
+
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Nombre">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="col-md-3 control-label">Apellidos</label>
+
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Apellidos">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="user" class="col-md-3 control-label">Usuario</label>
+
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="user" name="user" placeholder="Nombre de usuario">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-md-3 control-label">Contraseña</label>
+
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" id="password" name="passwd" placeholder="Contraseña">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Button -->
+                            <div class="col-md-offset-3 col-md-9 text-center">
+                                <button id="btn-signupReg" type="submit" class="btn btn-login-pet"><i
+                                        class="icon-hand-right"></i> &nbsp Regístrate
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block extrajs %}
+    <script src="{% static 'js/validacion.js' %}"></script>
+{% endblock %}

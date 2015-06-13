@@ -1,0 +1,72 @@
+.img-circle-pet {
+  border-radius: 50%;
+
+}
+.img-circle-pet:hover{
+    color: #080908;
+    opacity: 70;
+}
+
+.nombre-animal {
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+input[type=file] {
+  display: inline;
+}
+.btn-create{
+    background: #9b59b6;
+}
+
+.btn-create:hover{
+    background: #8e3f99;
+}
+
+.btn-create2{
+    background: #9b59b6;
+}
+
+.btn-create2:hover{
+    background: #8e3f99;
+}
+
+.btn span.glyphicon {
+	opacity: 0;
+}
+.btn.active span.glyphicon {
+	opacity: 1;
+}
+
+.btn-color-gris {
+    background: darkgray;
+}
+
+.btn-color-azul {
+    background: #31b0d5;
+}
+
+.btn-color-amarillo {
+    background: gold;
+}
+
+.btn-color-celeste {
+    background: aquamarine;
+}
+
+.btn-color-morado {
+    background: mediumpurple;
+}
+
+.btn-color-naranja {
+    background: orange;
+}
+
+.btn-color-rojo {
+    background: firebrick;
+}
+
+.btn-color-verde {
+    background: yellowgreen;
+}
+
+

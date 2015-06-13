@@ -1,0 +1,87 @@
+.logo-central-circular {
+    max-width: 150px;
+  border: 20px;
+  border-color: aqua;
+  box-shadow: #6FC3CA 0 0 44px;
+}
+
+.logo-central-signin {
+    max-width: 200px;
+    align-content: center;
+}
+
+.panel-heading-pet {
+  background-image: linear-gradient(to bottom, #DEA6FF 0, #89218C 100%);
+    background-repeat: repeat-x;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+}
+.panel-info > .panel-heading-pet {
+  color: #26C07C;
+  background-color: #DD8AFF;
+  border-color: #922DB5;
+}
+
+.panel-info {
+  border-color: #A54DB2;
+}
+
+.panel-title-pet {
+      margin-top: 0;
+  margin-bottom: 0;
+  color: white
+}
+
+.a-pet{
+  color: #26C07C;
+  text-decoration: none;
+}
+
+.a-pet:hover{
+    color: #3c763d;
+}
+
+.a-pet2{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.a-pet2:hover{
+   color: #26C07C;
+}
+
+.btn-login-pet{
+      display: inline-block;
+      background-image: linear-gradient(to bottom, #5cb85c 0, #419641 100%);
+    padding: 7px 50px;
+    color: #ffffff;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.panel-info-pet{
+  border-color: #9C3EA5;
+}
+
+.checkbox-pet{
+    font-size: 14px;
+}

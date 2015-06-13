@@ -1,0 +1,36 @@
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block extrastyle %}
+    <link href="{% static 'css/animales-tab.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% for animal in animales %}
+    <div class="col-xs-6 col-lg-3 text-center">
+        <a href="/animal/{{ animal.id }}">
+            <img class="img-responsive img-circle"
+                 style="width:144px;margin-left: 50%;margin-right: 50%;position: relative;left: -72px;"
+                 src="{% if animal.foto.avatar.url != '' %}/{{  animal.foto.avatar.url }}{% else %}{% static 'img/imgdefecto.jpg' %}{% endif %}">
+
+        </a>
+
+        <h3>{{ animal.nombre }}</h3>
+    </div>
+{% endfor %}
+
+
+<div class="col-xs-6 col-lg-3 text-center">
+    <!--<a href="animales/1">-->
+    <span class="glyphicon glyphicon-plus-sign add-animal" data-toggle="modal"
+          data-target=".bs-example-modal-lg2"></span>
+    <!--</a>>-->
+</div>
+
+<!-- Modal Animal -->
+{% include 'animal-add-modal.html' %}
+
+{% block extrajs %}
+    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'js/validacion.js' %}"></script>
+{% endblock %}

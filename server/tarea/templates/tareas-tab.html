@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+{% block extrastyle %}
+    <link href="{% static 'css/tareas-tab.css' %}" rel="stylesheet">
+{% endblock %}
+
+<section id="cd-timeline">
+    {% for tarea in tareas %}
+        <div class="cd-timeline-block">
+            <div class="cd-timeline-img circle-{{ tarea.animal.get_verbose_color }}">
+                <img class="img-responsive img-circle" src="{{ tarea.animal.foto.avatar.url }}"/>
+            </div>
+            <!-- cd-timeline-img -->
+            <div class="cd-timeline-content {{ tarea.animal.get_verbose_color }}" style="  border-radius: 40px;">
+                <h3><a href="#" data-toggle="modal" data-idTarea="{{ tarea.id }}" data-tarea="{{ tarea }}" data-target="#modalEditTarea"
+                       data-nombre="{{ tarea.nombre }}" data-animal="{{ tarea.animal.id }}" data-date="{{ tarea.fecha|date:"Y-m-d" }}" data-hour="{{ tarea.fecha|date:"H" }}:{{ tarea.fecha.minute }}" data-desc="{{ tarea.descripcion }}">{{ tarea.nombre }}</a></h3>
+                <p>{% if tarea.descripcion|length == 0 %}<br>
+                    {% else %}
+                    {{ tarea.descripcion }}
+                    {% endif %}
+                </p>
+                <span class="cd-date">{{ tarea.fecha }}</span>
+            </div>
+            <!-- cd-timeline-content -->
+        </div> <!-- cd-timeline-block -->
+    {% endfor %}
+
+    <div>
+    <span class="glyphicon glyphicon-plus-sign add-tarea" data-toggle="modal"
+          data-target="#addModalTarea"></span>
+    </div>
+    <!-- Modal Tarea -->
+    {% include 'tarea-add-modal.html' %}
+    {% include 'tarea_update_modal.html' %}
+</section>
+
+{% block extrajs %}
+    <script type="application/javascript" src="{% static 'js/tarea_update_modal.js' %}"
+{% endblock %}

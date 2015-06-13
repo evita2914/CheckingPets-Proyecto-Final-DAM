@@ -1,0 +1,49 @@
+
+<div id="modalEdit" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modalUpdateTittle">Modificar mascota</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/animal/modificar/{{ animal.id }}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Nombre:</label>
+                        <input type="text" class="form-control" id="recipient-name" name="nom" placeholder="Nombre de la mascota" value="{{ animal.nombre }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label">Fecha de nacimiento:</label>
+                        <input type="text" class="form-control" id="date-pick" placeholder="AAAA-MM-DD" value="{{ animal.nacimiento|date:"Y-m-d" }}" name="fec">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Descripción:</label>
+                        <textarea class="form-control" id="message-text" name="descrN" placeholder="Descripción de la mascota" >{{ animal.descripcion }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Color:</label>
+                        <div class="container form-group">
+                                <div class="btn-group" data-toggle="buttons">
+                                    {% for codigo, color in colores.items %}
+                                    <label class="btn btn-color-{{ color }} {% if animal.color == codigo %}active{% endif %}">
+                                        <input type="radio" name="color" value="{{ color }}">
+                                        <span class="glyphicon glyphicon-ok"></span>
+                                    </label>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row text-center">
+                                <button  type="submit" class="btn" id="modAnimal" style="color: #ffffff; background-color: #26C07C">Guardar Cambios</button>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

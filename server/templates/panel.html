@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block extrastyle %}
+    <link href="{% static 'css/panel.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block contenido %}
+    <nav class="navbar navbar-default" style="margin-bottom: 0">
+    <div class="container-fluid">
+        <div class="">
+            <a class="navbar-brand" href="/">
+                <img alt="CheckingPets" style="display: inline;" class="checking-logo"
+                     src="{% static 'img/LogoSinNombre.png' %}">
+
+                <h3 class="checking-title">Checking Pets</h3>
+            </a>
+        </div>
+
+        <div style="float:right; padding-top: 15px;">
+            <p id="nomNegr" style="display: inline-block; margin-right: 8px; font-size: medium; padding-left:3px">Hola <a href="/user/modificar/">{{ user }}</a>
+            </p>
+            <a href="/logout/"  style="float: right">
+                <span class="glyphicon glyphicon-log-out"></span>
+
+                <p style="display: inline-block; margin-left: 4px; font-size: medium">¿Salir?</p>
+            </a>
+        </div>
+    </div>
+</nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="tabbable-panel" style="min-height: 290px;">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs text-center">
+                            <li class="active" style="min-width: 50%;">
+                                <a href="#tab_default_1" data-toggle="tab">
+                                   <h4> Mascotas</h4> </a>
+                            </li>
+                            <li style="min-width: 50%;">
+                                <a href="#tab_default_2" data-toggle="tab">
+                                    <h4>Tareas</h4> </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_default_1">
+                                {% include 'animales-tab.html' %}
+                            </div>
+                            <div class="tab-pane" id="tab_default_2">
+                                {% include 'tareas-tab.html' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extrajs %}
+    <link href="{% static 'js/validacion.js' %}" rel="stylesheet">
+{% endblock %}
